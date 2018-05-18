@@ -10,21 +10,21 @@ import java.util.List;
 public class CSVDataProvider {
 
 
-        public static Iterator<Object[]> loadDataFromFile() {
-            List<Object[]> list = new ArrayList<Object[]>();
-            String filePath = new File("./target/classes/InvalidCredentials.csv").getAbsolutePath();
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(filePath));
-                reader.readLine();
-                String line = reader.readLine();
+    public static Iterator<Object[]> loadDataFromFile() {
+        List<Object[]> list = new ArrayList<Object[]>();
+        String filePath = new File("./target/classes/InvalidCredentials.csv").getAbsolutePath();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            reader.readLine();
+            String line = reader.readLine();
 
-                while (line != null) {
-                    String[] params = line.split(",");
-                    list.add(new Object[]{params[0], params[1]});
-                    line = reader.readLine();
-                }
-            } catch (Exception e) {
+            while (line != null) {
+                String[] params = line.split(",");
+                list.add(new Object[]{params[0], params[1]});
+                line = reader.readLine();
             }
-            return list.iterator();
+        } catch (Exception e) {
         }
+        return list.iterator();
     }
+}
